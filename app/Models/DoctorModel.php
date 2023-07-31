@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\DoctorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +13,6 @@ class DoctorModel extends Model
     protected $primarykey = 'id';
     protected static function newFactory()
     {
-        return DoctorModel::new();
+        return DoctorFactory::new();
     }
 }

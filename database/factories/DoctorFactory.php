@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\CitiesModel;
 use App\Models\DoctorModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,7 +28,8 @@ class DoctorFactory extends Factory
         ];
         return [
             'name' => fake()->name(),
-            'speciality' => fake()->randomElement($specialitys),
+            'specialty' => fake()->randomElement($specialitys),
+            'cities_id' => CitiesModel::factory()->create()
         ];
     }
     protected $model = DoctorModel::class;
