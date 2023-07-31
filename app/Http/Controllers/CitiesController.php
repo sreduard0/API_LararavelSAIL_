@@ -12,7 +12,7 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $cities = CitiesModel::select('id', 'name')->all();
+        $cities = CitiesModel::select('id', 'name', 'state')->get();
         return response()->json($cities);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LinkPatientDoctorRequest;
+use App\Http\Requests\NewDoctorRequest;
 use App\Models\DoctorModel;
 use Illuminate\Http\Request;
 
@@ -12,55 +14,40 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = DoctorModel::all()->toArray();
-        return json_encode($doctors);
+        $doctors = DoctorModel::select('id', 'name', 'specialty')->get();
+        return response()->json($doctors);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function store(NewDoctorRequest $request)
     {
-        //
+        $newDoctor = $request->all();
+        $data = [
+            'name' => $newDoctor['nome'],
+            'specialty' => $newDoctor['especialidade'],
+            'cities_id' => $newDoctor['cidade_id']
+        ];
+        if (DoctorModel::create($data)) {
+            return response()->json('Doctor successfully added.', 200);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $city)
     {
-        //
+        $doctors = DoctorModel::select('id', 'name', 'specialty')->where('cities_id', $city)->get();
+        return response()->json($doctors);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Link patient to doctor.
      */
-    public function edit(string $id)
+    public function linkPatient(LinkPatientDoctorRequest $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

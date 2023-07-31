@@ -11,6 +11,7 @@ class DoctorModel extends Model
     use HasFactory;
     protected $table = 'doctor';
     protected $primarykey = 'id';
+    protected $fillable = ['name', 'specialty', 'cities_id'];
     protected static function newFactory()
     {
         return DoctorFactory::new();
