@@ -10,18 +10,16 @@ class LinkPatientDoctorRequest extends FormRequest
     {
         return
             [
-                'nome' => ['required', 'max:100'],
-                'especialidade' => ['required', 'max:100'],
-                'cidade_id' => ['integer'],
+                'medico_id' => ['required', 'integer'],
+                'paciente_id' => ['required', 'integer'],
             ];
     }
     public function messages()
     {
         return
             [
-                'nome' => 'Name invalid.',
-                'especialidade' => 'Specialty invalid.',
-                'cidade_id' => 'City invalid.',
+                'medico_id' => 'Doctor invalid.',
+                'paciente_id' => 'Patient invalid.',
             ];
     }
 }

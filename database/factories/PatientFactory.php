@@ -15,7 +15,7 @@ class PatientFactory extends Factory
         return [
             'name' => fake()->name(),
             'cpf' => rand(10000000000, 99999999999),
-            'phone' => rand(51801111111, 51999999999),
+            'phone' => fake()->phone(11),
         ];
     }
     protected $model = PatientModel::class;

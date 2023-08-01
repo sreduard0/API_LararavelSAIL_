@@ -4,15 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewDoctorRequest extends FormRequest
+class NewPatientRequest extends FormRequest
 {
     public function rules()
     {
         return
             [
                 'nome' => ['required', 'max:100'],
-                'especialidade' => ['required', 'max:100'],
-                'cidade_id' => ['integer'],
+                'cpf' => ['required', 'max:20'],
+                'celular' => ['required', 'max:20'],
             ];
     }
     public function messages()
@@ -20,8 +20,8 @@ class NewDoctorRequest extends FormRequest
         return
             [
                 'nome' => 'Name invalid.',
-                'especialidade' => 'Specialty invalid.',
-                'cidade_id' => 'City invalid.',
+                'cpf' => 'CPF invalid.',
+                'celular' => 'Phone invalid.',
             ];
     }
 }

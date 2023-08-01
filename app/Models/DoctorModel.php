@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class DoctorModel extends Model
 {
+    public function patients()
+    {
+        return $this->belongsToMany(PatientModel::class, 'doctor_patient', 'doctor_id', 'patient_id')->select('name', 'cpf', 'phone');
+    }
     use HasFactory;
+
     protected $table = 'doctor';
     protected $primarykey = 'id';
     protected $fillable = ['name', 'specialty', 'cities_id'];

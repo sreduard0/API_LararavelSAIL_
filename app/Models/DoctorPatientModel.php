@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class DoctorPatientModel extends Model
 {
     use HasFactory;
+
     protected $table = 'doctor_patient';
     protected $primarykey = 'id';
+    protected $fillable = ['doctor_id', 'patient_id'];
     protected static function newFactory()
     {
         return DoctorPatientFactory::new();
