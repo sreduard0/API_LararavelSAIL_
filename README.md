@@ -1,4 +1,4 @@
-# Documentação do Laravel Sail - Executando Comandos Migrate e DB Seed
+# Teste técnico para Pessoa Desenvolvedora Back-end Plena
 
 Esta documentação fornece instruções sobre como usar o Laravel Sail para executar os comandos `migrate` e `db:seed` no Laravel, que são úteis para criar e popular o banco de dados com dados iniciais.
 
@@ -56,15 +56,9 @@ O comando `db:seed` é usado para popular o banco de dados com dados iniciais. E
 
 Para executar o comando `db:seed` usando o Laravel Sail, siga os passos abaixo:
 
-1. Abra um terminal ou prompt de comando no diretório raiz do seu projeto Laravel.
+1. Abra um terminal ou prompt de comando no diretório raiz do seu projeto Laravel
 
-2. Execute o seguinte comando para iniciar os containers do Laravel Sail:
-
-```bash
-./vendor/bin/sail up -d
-```
-
-3. Em seguida, execute o comando `db:seed` usando o Artisan:
+2. Em seguida, execute o comando `db:seed` usando o Artisan:
 
 ```bash
 ./vendor/bin/sail artisan db:seed
@@ -72,6 +66,3 @@ Para executar o comando `db:seed` usando o Laravel Sail, siga os passos abaixo:
 
 O Laravel Sail agora irá executar as classes de sementes (seeder classes) definidas no diretório `database/seeders`. Cada classe de semente pode conter lógica para inserir dados específicos nas tabelas do banco de dados.
 
-## Conclusão
-
-Agora você aprendeu como executar os comandos `migrate` e `db:seed` usando o Laravel Sail. Esses comandos permitem que você crie as tabelas do banco de dados e as preencha com dados iniciais, preparando assim o ambiente para o desenvolvimento e teste do seu aplicativo. Certifique-se de iniciar os containers do Laravel Sail antes de executar os comandos.
